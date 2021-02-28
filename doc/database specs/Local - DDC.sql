@@ -120,5 +120,20 @@ create table ddc_tribute (
     tri_type varchar(30),
     tri_value number(6, 2),
     tri_aliquot number(3, 4),
-    tri_cal_basis number(6, 4)
+    tri_cal_basis number(6, 4),
+    cod_bill number(10) constraint FK_TRIB_COD_BILL references ddc_bill(cod_bill)
 );
+
+create sequence ddc_seq_address increment by 1 start with 1 maxvalue 999999 nocycle;
+create sequence ddc_seq_bill increment by 1 start with 1 maxvalue 999999 nocycle;
+create sequence ddc_seq_class increment by 1 start with 1 maxvalue 999999 nocycle;
+create sequence ddc_seq_flag increment by 1 start with 1 maxvalue 999999 nocycle;
+create sequence ddc_seq_group increment by 1 start with 1 maxvalue 999999 nocycle;
+create sequence ddc_seq_sub_class increment by 1 start with 1 maxvalue 999999 nocycle;
+create sequence ddc_seq_sub_group increment by 1 start with 1 maxvalue 999999 nocycle;
+create sequence ddc_seq_identification increment by 1 start with 1 maxvalue 999999 nocycle;
+create sequence ddc_seq_instalation increment by 1 start with 1 maxvalue 999999 nocycle;
+create sequence ddc_seq_meter increment by 1 start with 1 maxvalue 999999 nocycle;
+create sequence ddc_seq_product increment by 1 start with 1 maxvalue 999999 nocycle;
+create sequence ddc_seq_supplier increment by 1 start with 1 maxvalue 999999 nocycle;
+create sequence ddc_seq_tribute increment by 1 start with 1 maxvalue 999999 nocycle;
