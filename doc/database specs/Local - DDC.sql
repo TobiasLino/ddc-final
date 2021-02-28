@@ -109,7 +109,16 @@ create table ddc_product (
     cod_bill number(10) constraint FK_PRO_COD_BILL references ddc_bill(cod_bill)
 );
 
-select * from ddc_bill b
-join ddc_energy_bill e on b.cod_bill = e.cod_bill;
+create table ddc_water_bill (
+    cod_bill number(10) constraint FK_WA_COD_BILL references ddc_bill(cod_bill),
+    wat_location varchar(30),
+    wat_group number(3)
+);
 
---drop table ddc_ cascade constraints;
+create table ddc_tribute (
+    cod_tribute number(10) constraint PK_TRIB_COD_TRIB primary key,
+    tri_type varchar(30),
+    tri_value number(6, 2),
+    tri_aliquot number(3, 4),
+    tri_cal_basis number(6, 4)
+);
