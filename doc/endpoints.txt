@@ -1,0 +1,30 @@
+===============================================================================
+    All endpoints of DDC app.
+===============================================================================
+
+BILL
+-------------------------------------------------------------------------------
+[GET]   /bills/                                 # retorna as contas do mês
+[POST]  /bills/                                 # insere uma nova conta
+[PUT]   /bills/                                 # modifica um conta existente
+[GET]   /bills/get/                             # obtém uma conta por id
+[GET]   /bills/find/?                           # busca contas
+            instalation                         # busca qualquer conta por instalação
+            meter                               # busca por número do medidor
+            startDate & endDate                 # busca por data de início e fim (data de referência da conta).
+            client                              # busca por nome do cliente
+            cnpj                                # busca por CNPJ do cliente
+            city                                # busca por cidade
+            neigh                               # busca por bairro (precisa ter cidade)
+[GET]   /bills/report/cost/download/?           # Retorna o relatório de custo em .xls
+            instalation                         # restringe a instalação
+            meter                               # restringe o medidor
+            cllient                             # restringe o cliente (código)
+            starDate                            # Data de início (Obrigatório)
+            endDate                             # Data de fim (Obrigatório)
+[GET]   /bills/report/consumption/download      # Retorna o relatório de consumo em .xls
+            instalation                         # restringe a instalação
+            meter                               # restringe o medidor
+            cllient                             # restringe o cliente (código)
+            starDate                            # Data de início (Obrigatório)
+            endDate                             # Data de fim (Obrigatório)
