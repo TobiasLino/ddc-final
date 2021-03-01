@@ -11,6 +11,7 @@ import org.springframework.data.annotation.CreatedDate;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.Date;
 
 @Entity
 @Table(name = "DDC_CLIENT")
@@ -25,14 +26,15 @@ public class Client {
 
     @Column(name = "CLI_DATA_CRIA")
     @CreatedDate
-    @Type(type = "org.jadira.usertype.dateandtime.joda.PersistentDateTime")
-    private DateTime dataCria;
+    //@Type(type = "org.jadira.usertype.dateandtime.joda.PersistentDateTime")
+    private Date dataCria;
 
     @Column(name = "CLI_NAME", unique = true)
     @NotNull
     private String name;
 
-    @Column(name = "COD_IDENT")
     @NotNull
+    @ManyToOne
+    @JoinColumn(name = "COD_IDENT")
     private Identification identity;
 }

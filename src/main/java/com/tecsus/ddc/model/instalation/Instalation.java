@@ -27,22 +27,25 @@ public class Instalation {
 
     @CreatedDate
     @Column(name = "INST_DATA_CRIA")
-    @Type(type = "org.jadira.usertype.dateandtime.joda.PersistentDateTime")
+    //@Type(type = "org.jadira.usertype.dateandtime.joda.PersistentDateTime")
     private DateTime dataCria;
 
     @Column(name = "INSTA_NUMBER", unique = true)
     @NotNull
     private String number;
 
-    @Column(name = "COD_CLIENT")
+    @ManyToOne
+    @JoinColumn(name = "COD_CLIENT")
     @NotNull
     private Client client;
 
-    @Column(name = "COD_SUPPLIER")
+    @ManyToOne
+    @JoinColumn(name = "COD_SUPPLIER")
     @NotNull
     private Supplier supplier;
 
-    @Column(name = "COD_ADDRESS")
+    @OneToOne
+    @JoinColumn(name = "COD_ADDRESS")
     @NotNull
     private Address address;
 }

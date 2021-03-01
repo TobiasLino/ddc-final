@@ -26,10 +26,11 @@ public class Supplier {
 
     @Column(name = "SUP_DATA_CRIA")
     @CreatedDate
-    @Type(type = "org.jadira.usertype.dateandtime.joda.PersistentDateTime")
+    //@Type(type = "org.jadira.usertype.dateandtime.joda.PersistentDateTime")
     private DateTime dataCria;
 
-    @Column(name = "COD_IDENT")
+    @ManyToOne
+    @JoinColumn(name = "COD_IDENT")
     private Identification identity;
 
     @NotNull
@@ -42,7 +43,8 @@ public class Supplier {
     @Column(name = "SUP_SITE")
     private String site;
 
-    @Column(name = "COD_ADDRESS")
+    @ManyToOne
+    @JoinColumn(name = "COD_ADDRESS")
     private Address address;
 }
 
