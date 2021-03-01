@@ -1,0 +1,12 @@
+[
+  {
+    "id": 1,
+    "dataCria": "2021-03-01T01:24:36.000+00:00",
+    "name": "Tobias Lino",
+    "identity": {
+      "id": 1,
+      "document": "44521581889",
+      "type": "CPF",
+    },
+  }
+]
