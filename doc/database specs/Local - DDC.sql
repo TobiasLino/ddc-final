@@ -137,3 +137,20 @@ create sequence ddc_seq_meter increment by 1 start with 1 maxvalue 999999 nocycl
 create sequence ddc_seq_product increment by 1 start with 1 maxvalue 999999 nocycle;
 create sequence ddc_seq_supplier increment by 1 start with 1 maxvalue 999999 nocycle;
 create sequence ddc_seq_tribute increment by 1 start with 1 maxvalue 999999 nocycle;
+create sequence ddc_seq_client increment by 1 start with 1 maxvalue 999999 nocycle;
+
+insert into ddc_identification (cod_ident, ide_doc, ide_type) values (ddc_seq_identification.nextval, '44521581889', 'CPF');
+select * from ddc_identification;
+
+insert into ddc_client (cod_client, cli_name, cod_ident) 
+values (ddc_seq_client.nextval, 'Tobias Lino', 1);
+
+select 
+    c.cod_client, 
+    extract(to_tz(to_timestamp(c.cli_data_cria)), WEEK),
+    c.cli_name,
+    c.cod_ident,
+    i.ide_doc,
+    i.ide_type
+from ddc_client c 
+left join ddc_identification i on c.cod_ident = i.cod_ident;
